@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .center {
+            margin: auto;
+            width: 60%;
+            /* border: 3px solid #73AD21; */
+            padding: 10px;
+        }
+    </style>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin | Sales-Succeed</title>
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="./css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="./css/animate.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+
+    <link href="css/plugins/select2/select2.min.css" rel="stylesheet">
+    <link href="css/plugins/select2/select2-bootstrap4.min.css" rel="stylesheet">
+
+
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    <script>
+        var jqOld = jQuery.noConflict();
+        jqOld(function () {
+            jqOld("#fromDate").datepicker({ dateFormat: 'yy-mm-dd' });
+        })
+    </script>
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <img alt="image" class="rounded-circle" style="width: 150px;"
+                                src="../img/admin_panel.png" />
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="block m-t-xs font-bold" style="margin-left: 30px;">Sales-Succeed</span>
+                            </a>
+                        </div>
+                        <div class="logo-element">
+                            IN+
+                        </div>
+                        <li>
+                            <a href="/dashboard"><i class="fa fa-th-large"></i> <span
+                                    class="nav-label">Dashboard</span></a>
+    
+                        </li>
+                        <li>
+                            <a href="/subscription"><i class="fa fa-list-alt"></i> <span
+                                    class="nav-label">Subscription</span></a>
+    
+                        </li>
+                        <li>
+                            <a href="/earning"><i class="fa fa-usd"></i> <span class="nav-label">Earning</span></a>
+    
+                        </li>
+                        <li>
+                            <a href="/saleAgents"><i class="fa fa-users"></i> <span
+                                    class="nav-label">Sale-Agent</span></a>
+    
+                        </li>
+                        <li>
+                            <a href="/business"><i class="fa fa-building"></i> <span class="nav-label">Business</span></a>
+    
+                        </li>
+                        <li>
+                            <a href="/allJobs"><i class="fa fa-shopping-bag"></i> <span class="nav-label">All-Job</span></a>
+    
+                        </li>
+                        <li>
+                            <a href="/drafts"><i class="fa fa-shopping-bag"></i> <span class="nav-label">Drafted job</span></a>
+                        </li>
+                        <li>
+                            <a href="/feedback"><i class="fa fa-comment"></i> <span class="nav-label">FeedBack</span></a>
+    
+                        </li>
+                        <li class="active">
+                            <a href="/addsubscription"><i class="fa fa-list-alt"></i> <span class="nav-label">Subscription
+                                </span></a>
+                        </li>
+                        <li>
+                            <a href="/addDropDownBusiness"><i class="fa fa-caret-square-o-down"></i> <span
+                                    class="nav-label"> Business DropDown-list</span></a>
+    
+                        </li>
+                        <li>
+                            <a href="/seekerDropdown"><i class="fa fa-caret-square-o-down"></i> <span
+                                    class="nav-label"> Seeker DropDown-list</span></a>
+    
+                        </li>
+                        <li class="active">
+                            <a href="#"><i class="fa fa-cog"></i> <span class="nav-labellabellabel">Settings </span></a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="/changePassword"> Change Password</a></li>
+                                <li><a href="/Faq">Faq Detail</a></li>
+                                <li><a href="/termAndCondition">About us Detail</a></li>
+    
+                            </ul>
+                        </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <!-- <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a> -->
+                        <form role="search" class="navbar-form-custom" action="search_results.html">
+                        </form>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <span class="m-r-sm text-muted welcome-message">Welcome to Sales-Succeed App Admin </span>
+                        </li>
+
+                        <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
+                    </ul>
+
+                </nav>
+            </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2> Subscription</h2>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/dashboard">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/subscription">Subscription</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            <strong>Add Subscription </strong>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-8">
+                        <div class="panel panel-primary ">
+                            <div class="panel-heading">
+                                <h3 style="color: white; ">Add Subscription</h3>
+                            </div>
+                            <div class="panel-body" style="margin-bottom:15px;">
+                                <div class="form-group">
+                                    <div class="col-lg-12">
+                                        <div class="ibox " style="width:100%">
+                                            <!-- <div class="ibox-content"> -->
+                                            <form id="form1" method="post" enctype="multipart/form-data">
+                                                <h4> Tittle </h4>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Tittle of Subscription" id="tittle" name="tittle"
+                                                        required>
+                                                </div>
+                                                <!-- <h4>Benifits </h4>
+                                                    <select class="select2_demo_2 form-control" name="benifits"
+                                                        id="benifits" multiple="multiple">
+                                                    </select> -->
+                                                <h4> Price (kr) </h4>
+                                                <div class="form-group">
+                                                    <input type="number" class="form-control" auto-fill="off"
+                                                        placeholder="Price in kr" id="price" name="price"
+                                                        onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                                                        min="0" required>
+                                                </div>
+                                                <h4>Description </h4>
+                                                <div class="form-group">
+                                                    <textarea class="form-control"
+                                                        placeholder="Description About Subscription" id="description"
+                                                        name="description" cols="10" rows="5" required></textarea>
+                                                </div>
+                                                <h4>Duration </h4>
+                                                <div class="form-group">
+                                                    <input type="fromDate" id="fromDate" name="fromDate" placeholder="Enter Date"
+                                                        class="form-control">
+
+                                                    <!-- <input type="text" class="form-control"
+                                                            placeholder="Duration in Months or year" id="duration"
+                                                            name="duration" required> -->
+                                                </div>
+                                                <h4>Type </h4>
+                                                <div class="form-group">
+                                                    <select class="form-control" name="type" id="type">
+                                                        <option value="monthly">Monthly</option>
+                                                        <option value="yearly">Yearly</option>
+                                                    </select>
+                                                </div>
+                                                <h4>Free Days </h4>
+                                                <div class="form-group">
+                                                    <select class="form-control" name="free" id="free">
+                                                        <option value=1>1</option>
+                                                        <option value=2>2</option>
+                                                        <option value=3>3</option>
+                                                        <option value=4>4</option>
+                                                        <option value=5>5</option>
+                                                        <option value=6>6</option>
+                                                        <option value=7>7</option>
+
+                                                    </select>
+                                                </div>
+
+                                                <h4>Status </h4>
+                                                <div class="form-group">
+                                                    <select class="form-control" name="isActive" id="isActive">
+                                                        <option value="true">Active</option>
+                                                        <!-- <option value="false">Deactive</option> -->
+                                                    </select>
+                                                </div>
+                                                <div class="pull-right">
+                                                    <button class="btn btn-primary" value="submit" id="Submit">
+                                                    Save</button>
+                                                </div>
+                                            </form>
+                                            <!-- </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Mainly scripts -->
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="./js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Peity -->
+    <script src="./js/plugins/peity/jquery.peity.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="./js/inspinia.js"></script>
+    <script src="./js/plugins/pace/pace.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="./js/plugins/iCheck/icheck.min.js"></script>
+    <!-- select2 -->
+    <script src="js/plugins/select2/select2.full.min.js"></script>
+
+    <!-- Peity -->
+    <script src="./js/demo/peity-demo.js"></script>
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script>
+        $(".select2_demo_2").select2({
+            theme: 'bootstrap4',
+        });
+        var host = window.location.protocol + "//" + window.location.host;
+        var token = localStorage.getItem("token")
+        if (!token) {
+            localStorage.removeItem("name");
+            localStorage.removeItem("token");
+            window.location.replace('/');
+        }
+        function auth(code) {
+            if (code == 403) {
+                localStorage.removeItem("name");
+                localStorage.removeItem("token");
+                window.location.replace('/');
+            }
+        }
+        function logout() {
+            $.ajax({
+                url: host + '/api/v1/admin/logout',
+                type: 'Get',
+                // data: formData,
+                beforeSend: function (xhr) { xhr.setRequestHeader('x-auth', token); },
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    auth(data.code)
+                    console.log(data.code, "code")
+                    localStorage.removeItem("name");
+                    localStorage.removeItem("token");
+                    window.location.replace('/');
+                }
+            })
+        }
+
+
+        $(document).ready(function () {
+            $("form#form1").submit(function (e) {
+                e.preventDefault();
+                let obj = {
+                    'title': document.getElementById('tittle').value,
+                    'price': document.getElementById('price').value,
+                    'desc': document.getElementById('description').value,
+                    'duration': document.getElementById('fromDate').value,
+                    'subsType': document.getElementById('type').value,
+                    'freeDays': document.getElementById('free').value,
+                    'status': document.getElementById('isActive').value
+                };
+                if (obj.tittle == '' || obj.benifits == '' || obj.price == '' || obj.description == '' || obj.duration == '') {
+                    swal({
+                        title: "Error",
+                        text: " All fields are mandatory "
+                    });
+                } else {
+                    $.ajax({
+                        url: host + '/api/v1/subscription/addSubScription_ForAdmin',
+                        type: 'Post',
+                        data: JSON.stringify(obj),
+                        contentType: 'application/json',
+                        beforeSend: function (xhr) { xhr.setRequestHeader('x-auth', token); },
+                        dataType: 'json',
+                        success: function (data) {
+                            auth(data.code)
+                            if (data.code == 200) {
+                                swal({
+                                    title: "success",
+                                    text: data.message
+                                });
+                                window.location.replace('/subscription')
+                            } else {
+                                swal({
+                                    title: "Error",
+                                    text: data.message
+                                });
+                            }
+                        },
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

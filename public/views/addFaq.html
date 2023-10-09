@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wallis</title>
+
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="./css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="./css/animate.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+
+</head>
+
+<body onload="AddDetail()">
+
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <img alt="image" class="rounded-circle" style="width: 150px;"
+                                src="../img/admin_panel.png" />
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="block m-t-xs font-bold" style="margin-left: 30px;">Sales-Succeed</span>
+                            </a>
+                        </div>
+                        <div class="logo-element">
+                            IN+
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/dashboard"><i class="fa fa-th-large"></i> <span
+                                class="nav-label">Dashboard</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/subscription"><i class="fa fa-list-alt"></i> <span
+                                class="nav-label">Subscription</span></a>
+
+                    </li>
+                    <li class = "active">
+                        <a href="/earning"><i class="fa fa-usd"></i> <span class="nav-label">Earning</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/saleAgents"><i class="fa fa-users"></i> <span
+                                class="nav-label">Sale-Agent</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/business"><i class="fa fa-building"></i> <span class="nav-label">Business</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/allJobs"><i class="fa fa-shopping-bag"></i> <span class="nav-label">All-Job</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/drafts"><i class="fa fa-shopping-bag"></i> <span class="nav-label">Drafted job</span></a>
+                    </li>
+                    <li>
+                        <a href="/feedback"><i class="fa fa-comment"></i> <span class="nav-label">FeedBack</span></a>
+
+                    </li>
+                    <li >
+                        <a href="/addDropDownBusiness"><i class="fa fa-caret-square-o-down"></i> <span
+                                class="nav-label"> Business DropDown-list</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/seekerDropdown"><i class="fa fa-caret-square-o-down"></i> <span
+                                class="nav-label"> Seeker DropDown-list</span></a>
+
+                    </li>
+                    <li class="active">
+                        <a href="#"><i class="fa fa-cog"></i> <span class="nav-labellabellabel">Settings </span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="/changePassword"> Change Password</a></li>
+                            <li><a href="/Faq">Faq Detail</a></li>
+                            <li><a href="/termAndCondition">About us Detail</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+                </ul>
+
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <!-- <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a> -->
+                        <form role="search" class="navbar-form-custom" action="search_results.html">
+                        </form>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <span class="m-r-sm text-muted welcome-message">Welcome to Sales-Succeed App Admin </span>
+                        </li>
+
+                        <!-- <li> -->
+                        <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
+                        <!-- </li> -->
+                    </ul>
+
+                </nav>
+            </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>Add FAQ  <a href="/support"> <button class = "btn btn-sm btn-primary float-right" > FAQ List</button></a></h2>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="ibox " style="width:200%">
+                            <div class="ibox-content">
+                            <h4> Question</h4>
+                            <div class="form-group">
+                                <input type="Question" class="form-control" placeholder="question" id="question" name="Question" required>
+                            </div>
+                            <h4>Answer</h4>
+                            <div class="form-group" >
+                                <!-- <input type="Answer" class="form-control " placeholder="Answer" id="answer" name="Answer" required > -->
+                                <textarea class="form-control" name="" placeholder="Answer" id="answer" cols="30" rows="10"required ></textarea>
+                            </div>
+                           <!-- <div class="form-group" style="width:25%">
+                            <h4>Choose Role</h4>
+                            <label for="opts"></label>
+                            <select class="form-control" name="opts" id="opts"  onchange="choose();">
+                        
+                              <option value="user">User</option>
+                              <option value="rider">Rider</option>
+                            
+                            </select>
+                           </div> -->
+                            <div class="form-group">
+                                <button class="btn btn-primary block half-width m-b" onclick="Add()">Add FAQ</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Mainly scripts -->
+        <script src="./js/jquery-3.1.1.min.js"></script>
+        <script src="./js/popper.min.js"></script>
+        <script src="./js/bootstrap.js"></script>
+        <script src="./js/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="./js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+        <!-- Peity -->
+        <script src="./js/plugins/peity/jquery.peity.min.js"></script>
+
+        <!-- Custom and plugin javascript -->
+        <script src="./js/inspinia.js"></script>
+        <script src="./js/plugins/pace/pace.min.js"></script>
+
+        <!-- iCheck -->
+        <script src="./js/plugins/iCheck/icheck.min.js"></script>
+
+        <!-- Peity -->
+        <script src="./js/demo/peity-demo.js"></script>
+        <script>
+            var host = window.location.protocol + "//" + window.location.host;
+
+            function logout() {
+                localStorage.removeItem("name");
+                localStorage.removeItem("token");
+                window.location.replace('/');
+            }
+
+            function Add() {
+            var question = document.getElementById('question').value;
+            var answer = document.getElementById('answer').value;
+          //  var type = document.getElementById('opts').value;
+            $.post(host+'/api/v1/faq/addFaq', {
+                "question": question,
+                "answer": answer,
+               // 'type': type
+            }, function(data, status) {
+                console.log("response", data, status);
+                if (data.code == 200) {
+                    window.location.replace('/FAQ');
+                } else {
+                    alert(data.message);
+                }
+            });
+        }
+        </script>
+
+        <script>
+            $(document).ready(function () {
+                $('.i-checks').iCheck({
+                    checkboxClass: 'icheckbox_square-green',
+                    radioClass: 'iradio_square-green',
+                });
+            });
+        </script>
+
+</body>
+
+</html>

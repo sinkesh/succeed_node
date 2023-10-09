@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .center {
+            margin: auto;
+            width: 60%;
+            padding: 10px;
+        }
+    </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin | Sales-Succeed</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/c3/c3.min.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+</head>
+<!-- <body onload="choose1()"> -->
+
+<body>
+    <div id="wrapper">
+
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <img alt="image" class="rounded-circle" style="width: 150px;"
+                                src="../img/admin_panel.png" />
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="block m-t-xs font-bold" style="margin-left: 30px;">Sales-Succeed</span>
+                            </a>
+                        </div>
+                        <div class="logo-element">
+                            IN+
+                        </div>  
+                    </li>
+                    <li class="active">
+                        <a href="/dashboard"><i class="fa fa-th-large"></i> <span
+                                class="nav-label">Dashboard</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/subscription"><i class="fa fa-list-alt"></i> <span
+                                class="nav-label">Subscription</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/earning"><i class="fa fa-usd"></i> <span class="nav-label">Earning</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/saleAgents"><i class="fa fa-users"></i> <span
+                                class="nav-label">Sale-Agent</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/business"><i class="fa fa-building"></i> <span class="nav-label">Business</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/allJobs"><i class="fa fa-shopping-bag"></i> <span class="nav-label">All-Job</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/drafts"><i class="fa fa-shopping-bag"></i> <span class="nav-label">Drafted job</span></a>
+                    </li>
+                    <li>
+                        <a href="/feedback"><i class="fa fa-comment"></i> <span class="nav-label">FeedBack</span></a>
+
+                    </li>
+                    <li >
+                        <a href="/addDropDownBusiness"><i class="fa fa-caret-square-o-down"></i> <span
+                                class="nav-label"> Business DropDown-list</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/seekerDropdown"><i class="fa fa-caret-square-o-down"></i> <span
+                                class="nav-label"> Seeker DropDown-list</span></a>
+
+                    </li>
+                    <li class="active">
+                        <a href="#"><i class="fa fa-cog"></i> <span class="nav-labellabellabel">Settings </span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="/changePassword"> Change Password</a></li>
+                            <li><a href="/Faq">Faq Detail</a></li>
+                            <li><a href="/termAndCondition">About us Detail</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <!-- <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a> -->
+                        <form role="search" class="navbar-form-custom" action="search_results.html">
+                        </form>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <span class="m-r-sm text-muted welcome-message">Welcome to Sales-Succeed App Admin </span>
+                        </li>
+
+                        <!-- <li> -->
+                        <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
+                        <!-- </li> -->
+                    </ul>
+
+                </nav>
+            </div>
+            <div class="wrapper wrapper-content">
+                <div class="row">
+
+                    <div class="col-lg-3">
+                        <a href="/saleAgents">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5>Users</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins" id="agents"></h1>
+                                    <small> Total Sales Agent</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <a href="/business">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5>Business</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins" id="business"></h1>
+                                    <small>Total Business</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="#">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5>Applications</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins" id="application"></h1>
+                                    <small>Total Job Applications</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="/feedback">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5>Feedback</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins" id="feedback"></h1>
+                                    <small>Total Feedback</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <a href="/allJobs">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5> Jobs</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins" id="postedJobs"></h1>
+                                    <small>Total Posted Jobs</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="/allJobs?filtr=Ongoing">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5> Jobs</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins" id="ongoingJobs"></h1>
+                                    <small>Total Ongoing Jobs</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="/allJobs?filtr=Closed">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5> Jobs</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins" id="closedJobs"></h1>
+                                    <small>Total Closed Jobs</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="/allJobs?filtr=Complete">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5> Jobs</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins" id="completeJobs"></h1>
+                                    <small>Total Completed Jobs</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- <div class="row"> -->
+                    <div class="col-lg-12">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <h5>Subscription</h5>
+                                <div class="ibox-tools">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-xs btn-white " id="type1" value="Weekly"
+                                            onclick="choose1(this)">Weekly</button>
+                                        <button type="button" class="btn btn-xs btn-white " id="type1" value="Monthly"
+                                            onclick="choose1(this)">Monthly</button>
+                                        <!-- <button type="button" class="btn btn-xs btn-white" id="type1" value="quarterly"
+                                            onclick="choose1(this)">Quarterly</button> -->
+                                        <button type="button" class="btn btn-xs btn-white" id="type1" value="yearly"
+                                            onclick="choose1(this)">Annual</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ibox-content">
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                        <div class="ibox-content">
+                                            <div>
+                                                <canvas id="barChart" height="100"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <ul class="stat-list">
+                                            <li>
+                                                <h2 class="no-margins" id="totlSubscribe"></h2>
+                                                <small>Total subscriptions in period</small>
+                                                <div class="progress progress-mini">
+                                                    <div style="width: 48%;" class="progress-bar"></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <h2 class="no-margins " id="totlEarn"></h2>
+                                                <small>Total Earnings in period</small>
+                                                <div class="progress progress-mini">
+                                                    <div style="width: 60%;" class="progress-bar"></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <h2 class="no-margins " id="subInLastYear"></h2>
+                                                <small>Total Subscriptions in last year</small>
+                                                <div class="progress progress-mini">
+                                                    <div style="width: 22%;" class="progress-bar"></div>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- </div> -->
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <a href="#">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5>Profiles</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins" id="profile"></h1>
+                                    <small>Incomplete profile of user</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="#">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5>Businesses</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins" id="Sub"></h1>
+                                    <small> Subscribed </small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="#">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5>Businesses</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins" id="noSub"></h1>
+                                    <small>Without SubScribed</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="#">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5>Businesses</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins" id="expSub"></h1>
+                                    <small>Ending Subscription in last(30)days</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <a href="#">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5>Active Proposals</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins" id="totlpro"></h1>
+                                    <small>Total Active Proposals</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="#">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5>Offered Jobs</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins" id="offer"></h1>
+                                    <small> Total Offered Jobs </small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="#">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5>Applied Jobs</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins" id="apply"></h1>
+                                    <small> Total Applied Jobs</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="#">
+                            <div class="ibox ">
+                                <div class="ibox-title">
+                                    <h5>Hired Sales Agents</h5>
+                                </div>
+                                <div class="ibox-content">
+                                    <h1 class="no-margins" id="hire"></h1>
+                                    <small>Hired Sales Agents</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <h5><b>New SubScription</b></h5>
+                                <div class="pull-right">
+                                    <a href="/business"><button type="button">View All</button></a>
+                                </div>
+                            </div>
+                            <div class="ibox-content table-responsive">
+                                <table class="table table-hover no-margins">
+                                    <thead class="bg-primary p-xs b-r-sm">
+                                        <tr>
+                                            <th>#ID</th>
+                                            <th>BusinessName</th>
+                                            <th>MobileNo</th>
+                                            <th>SubType</th>
+                                            <th>TotalJob</th>
+                                            <th>HiredAgents</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id='table'>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="ibox ">
+                            <div class="ibox-title">
+                                <h5><b>Ending Subscriptions</b></h5>
+                                <div class="pull-right">
+                                    <a href="/subscription"><button type="button">View All</button></a>
+                                </div>
+                            </div>
+                            <div class="ibox-content table-responsive">
+                                <table class="table table-hover no-margins">
+                                    <thead class="bg-primary p-xs b-r-sm">
+                                        <tr>
+                                            <th>#ID</th>
+                                            <th>BusinessName</th>
+                                            <th>subType</th>
+                                            <th>endDate</th>
+                                            <th>DaysLeft</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id='table1'>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="footer">
+                <div>
+                    <strong>Copyright</strong> Tecorb Technologies &copy; 2020-2021
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Mainly scripts -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com"> -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- CHARTJS -->
+    <script src="../js/plugins/chartJs/Chart.min.js"></script>
+    <!-- <script src="../js/demo/chartjs-demo.js"></script> -->
+    <!-- Flot -->
+    <script src="js/plugins/flot/jquery.flot.js"></script>
+    <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="js/plugins/flot/jquery.flot.spline.js"></script>
+    <script src="js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="js/plugins/flot/jquery.flot.pie.js"></script>
+    <script src="js/plugins/flot/jquery.flot.symbol.js"></script>
+    <script src="js/plugins/flot/jquery.flot.time.js"></script>
+
+    <!-- Peity -->
+    <script src="js/plugins/peity/jquery.peity.min.js"></script>
+    <script src="js/demo/peity-demo.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="js/inspinia.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+    <!-- Jvectormap -->
+    <script src="js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+
+    <!-- EayPIE -->
+    <script src="js/plugins/d3/d3.min.js"></script>
+    <script src="js/plugins/c3/c3.min.js"></script>
+    <script src="js/plugins/easypiechart/jquery.easypiechart.js"></script>
+
+    <!-- Sparkline -->
+    <script src="js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Sparkline demo data  -->
+    <script src="js/demo/sparkline-demo.js"></script>
+
+
+    <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
+    <script type="text/javascript">
+        var token = localStorage.getItem("token");
+        var host = window.location.protocol + "//" + window.location.host;
+        if (!token) {
+            localStorage.removeItem("name");
+            localStorage.removeItem("token");
+            window.location.replace('/');
+        }
+        function auth(code) {
+            if (code == 403) {
+                localStorage.removeItem("name");
+                localStorage.removeItem("token");
+                window.location.replace('/');
+            }
+        }
+
+
+        function logout() {
+            $.ajax({
+                url: host + '/api/v1/admin/logout',
+                type: 'Get',
+                // data: formData,
+                beforeSend: function (xhr) { xhr.setRequestHeader('x-auth', token); },
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    auth(data.code)
+                    if (data.code == 200) {
+                        localStorage.removeItem("name");
+                        localStorage.removeItem("token");
+                        window.location.replace('/');
+                    } else {
+                        alert(data.message)
+                    }
+                }
+            })
+        }
+
+
+
+        $.ajax({
+            url: host + '/api/v1/admin/allDashBoardCount',
+            type: 'Get',
+            // data: formData,
+            beforeSend: function (xhr) { xhr.setRequestHeader('x-auth', token); },
+            contentType: false,
+            processData: false,
+            success: function (data, status) {
+                auth(data.code)
+                if (data.code == 200) {
+                    document.getElementById('agents').innerHTML = data.result.saleAgent;
+                    document.getElementById('business').innerHTML = data.result.business;
+                    document.getElementById('application').innerHTML = data.result.totalApplication;
+                    document.getElementById('feedback').innerHTML = data.result.feedback;
+
+                    document.getElementById('postedJobs').innerHTML = data.result.postedJob;
+                    document.getElementById('ongoingJobs').innerHTML = data.result.ongoingJob;
+                    document.getElementById('closedJobs').innerHTML = data.result.closedJob;
+                    document.getElementById('completeJobs').innerHTML = data.result.completeJob;
+
+                    document.getElementById('profile').innerHTML = data.result.totalSubscription;
+                    document.getElementById('Sub').innerHTML = data.result.totalSubscription;
+                    document.getElementById('noSub').innerHTML = data.result.notSubscription;
+                    document.getElementById('expSub').innerHTML = data.result.expSubscriptionMonthly;
+
+                    document.getElementById('totlpro').innerHTML = data.result.activeProposal;
+                    document.getElementById('offer').innerHTML = data.result.offeredJob;
+                    document.getElementById('apply').innerHTML = data.result.appliedJob;
+                    document.getElementById('hire').innerHTML = data.result.hiredAgent;
+
+
+                }
+            }
+        });
+
+        $.ajax({
+            url: host + '/api/v1/subscription/newSubscriptionList',
+            type: 'Post',
+            // data: formData,
+            beforeSend: function (xhr) { xhr.setRequestHeader('x-auth', token); },
+            contentType: false,
+            processData: false,
+            success: function (data, status) {
+                if (data.code == 200) {
+                    for (var i = 0; i < data.result.length; i++) {
+                     if(data.result[i].totlJob==null){
+                         var Tjob = 0
+                     }else{
+                         var Tjob = data.result[i].totlJob
+                     }
+                     if(data.result[i].salesAgent==null){
+                         var Tsale = 0
+                     }else{
+                         var Tsale = data.result[i].salesAgent
+                     }
+                        var index = i + 1;
+                        document.getElementById('table').innerHTML += '<tr >' +
+                            '<td >' + index + '<td >' + data.result[i].businessId.firstName + '<td>' + data.result[i].businessNumber +
+                            '<td >' + data.result[i].title + '<td >' + Tjob + '<td >' + Tsale
+                        '</tr>'
+                    }
+                }
+
+            }
+        })
+        $.ajax({
+            url: host + '/api/v1/subscription/endSubscriptionList',
+            type: 'Post',
+            // data: formData,
+            beforeSend: function (xhr) { xhr.setRequestHeader('x-auth', token); },
+            contentType: false,
+            processData: false,
+            success: function (data, status) {
+                if (data.code == 200) {
+                    for (var i = 0; i < data.result.length; i++) {
+
+                        var index = i + 1;
+                        document.getElementById('table1').innerHTML += '<tr >' +
+                            '<td >' + index + '<td >' + data.result[i].businessId.firstName + '<td>' + data.result[i].title +
+                            '<td >' + data.result[i].durationDate + '<td>' + data.result[i].daysLeft +
+                            '</tr>'
+                    }
+                }
+
+            }
+        })
+
+        function choose1(objButton) {
+
+            var type = objButton.innerHTML
+            let obj = {
+                "type": type
+            }
+            $.ajax({
+                url: host + '/api/v1/subscription/adminDashboardBookingCount',
+                type: 'Post',
+                contentType: 'application/json',
+                data: JSON.stringify(obj),
+                beforeSend: function (xhr) { xhr.setRequestHeader('x-auth', token); },
+                dataType: 'json',
+                success: function (data, status) {
+                    auth(data.code)
+                    if (data.code == 200) {
+                        document.getElementById('totlSubscribe').innerHTML = data.result.totalSubscription;
+                        document.getElementById('totlEarn').innerHTML = data.result.totalEarning;
+                        document.getElementById('subInLastYear').innerHTML = data.result.lastYearEarn
+
+                    } else {
+
+                    }
+                }
+            })
+
+        }
+
+
+        $.ajax({
+            url: host + '/api/v1/subscription/adminDashboardBookingCount',
+            type: 'Post',
+            contentType: 'application/json',
+            data: JSON.stringify({ "type": "Weekly" }),
+            beforeSend: function (xhr) { xhr.setRequestHeader('x-auth', token); },
+            dataType: 'json',
+            success: function (data, status) {
+                auth(data.code)
+                if (data.code == 200) {
+                    document.getElementById('totlSubscribe').innerHTML = data.result.totalSubscription;
+                    document.getElementById('totlEarn').innerHTML = data.result.totalEarning;
+                    document.getElementById('subInLastYear').innerHTML = data.result.lastYearEarn
+                } else {
+                    console.log("Something Wrong")
+                }
+            }
+        })
+
+        // }
+        // $(function () {
+        $.ajax({
+            url: host + '/api/v1/subscription/adminDashboardGraph',
+            type: 'Post',
+            //  data: JSON.stringify(type = "Weekly"),
+            beforeSend: function (xhr) { xhr.setRequestHeader('x-auth', token); },
+            contentType: false,
+            processData: false,
+            success: function (data, status) {
+                var barData = {
+                    labels: data.data1,
+                    datasets: [
+                        {
+                            label: "Data 1",
+                            backgroundColor: 'rgba(220, 220, 220, 0.5)',
+                            pointBorderColor: "#fff",
+                            data: data.data2//[23, 32, 23, 32, 56, 55, 40, 60, 50, 20, 40, 75]
+                        },
+                        {
+                            label: "Data 2",
+                            backgroundColor: 'rgba(26,179,148,0.5)',
+                            borderColor: "rgba(26,179,148,0.7)",
+                            pointBackgroundColor: "rgba(26,179,148,1)",
+                            pointBorderColor: "#fff",
+                            data: data.data3//[28, 48, 40, 19, 86, 27, 90, 40, 30, 50, 55, 65]
+                        }
+                    ]
+                };
+
+                var barOptions = {
+                    responsive: true
+                };
+
+
+                var ctx2 = document.getElementById("barChart").getContext("2d");
+                new Chart(ctx2, { type: 'bar', data: barData, options: barOptions });
+
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

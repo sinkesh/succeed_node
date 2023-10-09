@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .center {
+            margin: auto;
+            width: 60%;
+            /* border: 3px solid #73AD21; */
+            padding: 10px;
+        }
+    </style>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin | Nayee</title>
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="./css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="./css/animate.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/paginate/pagination.min.css">
+    <style type="text/css">
+        .container {
+            margin: 100px auto;
+        }
+
+        .box,
+        .show {
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .show {
+            padding: 10px 0;
+        }
+    </style>
+
+</head>
+w
+<body onload ="faqDetail()">
+
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <img alt="image" class="rounded-circle" style="width: 150px;"
+                                src="../img/admin_panel.png" />
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="block m-t-xs font-bold" style="margin-left: 30px;">Sales-Succeed</span>
+                            </a>
+                        </div>
+                        <div class="logo-element">
+                            IN+
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/dashboard"><i class="fa fa-th-large"></i> <span
+                                class="nav-label">Dashboard</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/subscription"><i class="fa fa-list-alt"></i> <span
+                                class="nav-label">Subscription</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/earning"><i class="fa fa-usd"></i> <span class="nav-label">Earning</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/saleAgents"><i class="fa fa-users"></i> <span
+                                class="nav-label">Sale-Agent</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/business"><i class="fa fa-building"></i> <span class="nav-label">Business</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/allJobs"><i class="fa fa-shopping-bag"></i> <span class="nav-label">All-Job</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/drafts"><i class="fa fa-shopping-bag"></i> <span class="nav-label">Drafted job</span></a>
+                    </li>
+                    <li>
+                        <a href="/feedback"><i class="fa fa-comment"></i> <span class="nav-label">FeedBack</span></a>
+
+                    </li>
+                    <li >
+                        <a href="/addDropDownBusiness"><i class="fa fa-caret-square-o-down"></i> <span
+                                class="nav-label"> Business DropDown-list</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/seekerDropdown"><i class="fa fa-caret-square-o-down"></i> <span
+                                class="nav-label"> Seeker DropDown-list</span></a>
+
+                    </li>
+                    <li class="active">
+                        <a href="#"><i class="fa fa-cog"></i> <span class="nav-labellabellabel">Settings </span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="/changePassword"> Change Password</a></li>
+                            <li><a href="/Faq">Faq Detail</a></li>
+                            <li><a href="/termAndCondition">About us Detail</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+                </ul>
+
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <!-- <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a> -->
+                        <form role="search" class="navbar-form-custom" action="search_results.html">
+                        </form>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <span class="m-r-sm text-muted welcome-message">Welcome to Sales-Succeed App Admin </span>
+                        </li>
+
+                        <!-- <li> -->
+                        <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
+                        <!-- </li> -->
+                    </ul>
+
+                </nav>
+            </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-12">
+                    <h2>FAQ <a href="/addFAQ"> <button class="btn btn-sm btn-primary float-right" >
+                                Add FAQ</button></a></h2>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/dashboard">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            <strong> FAQ </strong>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content animated fadeInRight" id="faqData"></div>
+            <div class="box">
+                <ul id="example-1" class="pagination"></ul>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- Mainly scripts -->
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="./js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Peity -->
+    <script src="./js/plugins/peity/jquery.peity.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="./js/inspinia.js"></script>
+    <script src="./js/plugins/pace/pace.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="./js/plugins/iCheck/icheck.min.js"></script>
+
+    <!-- Peity -->
+    <script src="./js/demo/peity-demo.js"></script>
+    <script type="text/javascript" src="/paginate/pagination.min.js"></script>
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        var token = localStorage.getItem("token");
+        var host = window.location.protocol + "//" + window.location.host;
+        if (!token) {
+            localStorage.removeItem("name");
+            localStorage.removeItem("token");
+            window.location.replace('/');
+        }
+        function auth(code) {
+            if (code == 403) {
+                localStorage.removeItem("name");
+                localStorage.removeItem("token");
+                window.location.replace('/');
+            }
+        }
+        function logout() {
+            console.log('logout')
+            $.ajax({
+                url: host + '/api/v1/admin/logout',
+                type: 'Get',
+                // data: formData,
+                beforeSend: function (xhr) { xhr.setRequestHeader('x-auth', token); },
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    auth(data.code)
+                    localStorage.removeItem("name");
+                    localStorage.removeItem("token");
+                    window.location.replace('/admin');
+                }
+            })
+        }
+
+        function faqDetail(req,res){
+        let obj = {
+            'pageNo': 1,
+            'perPage': 10
+        }
+        $.ajax({
+            url: host + '/api/v1/faq/ShowAndSearchFAQ',
+            type: 'Post',
+            contentType: 'application/json',
+            data: JSON.stringify(obj),
+            beforeSend: function (xhr) { xhr.setRequestHeader('x-auth', token); },
+            dataType: 'json',
+            success: function (data) {
+                auth(data.code)
+                console.log(data)
+                var x = data.count
+                $('#example-1').pagination({
+                    total: x,
+                    current: 1,
+                    length: 10,
+                    prev: 'Previous',
+                    next: 'Next',
+                    click: function (options, $target) { // 点击按钮事件
+                        console.log(options);
+                        let obj = {
+                            'pageNo': options.current,
+                            'perPage': options.length
+                        }
+                        console.log(obj)
+                        $.ajax({
+                            url: host + '/api/v1/faq/ShowAndSearchFAQ',
+                            type: 'Post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            beforeSend: function (xhr) { xhr.setRequestHeader('x-auth', token); },
+                            dataType: 'json',
+                            success: function (data) {
+                                auth(data.code)
+                                if (data.code == 200 && data.result.length) {
+                                    $("#faqData").html(' ')
+                                    for (var i = 0; i < data.result.length; i++) {
+                                        if (data.result[i].language == 'fr') {
+                                            var lang = 'French'
+                                        } else {
+                                            var lang = 'English'
+                                        }
+                                        document.getElementById('faqData').innerHTML += '<div class="faq-item">' +
+                            '<div class="row">' +
+                            '<div class="col-md-12"> <b>Question : </b>  ' +
+                            data.result[i].question + '</br>'+
+                            '<b>Answer :</b>  ' + data.result[i].answer + '<br>' +
+                            // '<b>Question_Danish :</b>  ' + data.result[i].question_dn + '<br>' +
+                            // '<b>Answer_Danish :</b>  ' + data.result[i].answer_dn + '<br>' +
+                            // '<b>Question_Swedan :</b>  ' + data.result[i].question_sw + '<br>' +
+                            // '<b>Answer_Swedan :</b>  ' + data.result[i].answer_sw + '<br>' +
+
+                            // '<a href="/editfaq"> </a><button type="button" class="btn btn-sm btn-primary float-right" style="margin-left:10px" id="Action_button" onclick= View(' + '\'' + data.result[i]._id + '\'' + ')>' + 'Edit FAQ' + '</button>' +
+                            '<button type="button" class="btn btn-sm btn-danger  float-right" id="Action_button" onclick= dlt(' + '\'' + data.result[i]._id + '\'' + ')>' + 'Delete' + '</button>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>'
+                    }
+                                } else {
+                                    document.getElementById('faqData').innerHTML = null;
+                                }
+                            }
+                        })
+                        $target.next(".show").text('Current: ' + options.current);
+
+                    }
+                });
+                if (data.code == 200 && data.result.length) {
+                    for (var i = 0; i < data.result.length; i++) {
+                        if (data.result[i].language == 'fr') {
+                            var lang = 'French'
+                        } else {
+                            var lang = 'English'
+                        }
+                        document.getElementById('faqData').innerHTML += '<div class="faq-item">' +
+                            '<div class="row">' +
+                            '<div class="col-md-12"> <b>Question : </b>  ' +
+                            data.result[i].question + '</br>'+
+                            '<b>Answer :</b>  ' + data.result[i].answer + '<br>' +
+                            // '<b>Question_Danish :</b>  ' + data.result[i].question_dn + '<br>' +
+                            // '<b>Answer_Danish :</b>  ' + data.result[i].answer_dn + '<br>' +
+                            // '<b>Question_Swedan :</b>  ' + data.result[i].question_sw + '<br>' +
+                            // '<b>Answer_Swedan :</b>  ' + data.result[i].answer_sw + '<br>' +
+
+                            // '<a href="/editfaq"> </a><button type="button" class="btn btn-sm btn-primary float-right" style="margin-left:10px" id="Action_button" onclick= View(' + '\'' + data.result[i]._id + '\'' + ')>' + 'Edit FAQ' + '</button>' +
+                            '<button type="button" class="btn btn-sm btn-danger  float-right" id="Action_button" onclick= dlt(' + '\'' + data.result[i]._id + '\'' + ')>' + 'Delete' + '</button>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>'
+                    }
+                } else {
+                    document.getElementById('faqData').innerHTML = null;
+                }
+            },
+        });
+
+    }
+
+        function dlt(_id) {
+            let obj = {
+                'faqId': _id
+            }
+            swal({
+                title: "Are you sure?",
+                text: "Your will not be able to recover this  file!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, Delete it!",
+                cancelButtonText: "No, leave pls!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        $.ajax({
+                            url: host + '/api/v1/faq/dltFaq',
+                            type: 'Post',
+                            contentType: 'application/json',
+                            data: JSON.stringify(obj),
+                            beforeSend: function (xhr) { xhr.setRequestHeader('x-auth', token); },
+                            dataType: 'json',
+                            success: function (data, status) {
+                                if (data.code == 200) {
+                                    window.location.replace('/Faq');
+                                } else {
+                                    alert(data.message)
+                                }
+                            }
+                        })
+                    } else {
+                        swal("Cancelled", "Your file is safe :");
+                    }
+                })
+        }
+        function View(_id) {
+            {
+                window.location.href = "/EditFaq?id=" + _id
+            }
+        }
+    </script>
+
+</body>
+
+</html>

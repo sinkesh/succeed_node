@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .center {
+            margin: auto;
+            width: 60%;
+            padding: 10px;
+        }
+
+        .img-box {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin | Sales-succeed</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/c3/c3.min.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+</head>
+
+<body onload="detail()">
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <img alt="image" class="rounded-circle" style="width: 150px;"
+                            src="../img/admin_panel.png" />
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="block m-t-xs font-bold" style="margin-left: 30px;">Sales-Succeed</span>
+                            </a>
+                        </div>
+                        <div class="logo-element">
+                            IN+
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/dashboard"><i class="fa fa-th-large"></i> <span
+                                class="nav-label">Dashboard</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/subscription"><i class="fa fa-list-alt"></i> <span
+                                class="nav-label">Subscription</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/earning"><i class="fa fa-usd"></i> <span class="nav-label">Earning</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/saleAgents"><i class="fa fa-users"></i> <span
+                                class="nav-label">Sale-Agent</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/business"><i class="fa fa-building"></i> <span class="nav-label">Business</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/allJobs"><i class="fa fa-shopping-bag"></i> <span class="nav-label">All-Job</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/drafts"><i class="fa fa-shopping-bag"></i> <span class="nav-label">Drafted job</span></a>
+                    </li>
+                    <li>
+                        <a href="/feedback"><i class="fa fa-comment"></i> <span class="nav-label">FeedBack</span></a>
+
+                    </li>
+                    <li >
+                        <a href="/addDropDownBusiness"><i class="fa fa-caret-square-o-down"></i> <span
+                                class="nav-label"> Business DropDown-list</span></a>
+
+                    </li>
+                    <li>
+                        <a href="/seekerDropdown"><i class="fa fa-caret-square-o-down"></i> <span
+                                class="nav-label"> Seeker DropDown-list</span></a>
+
+                    </li>
+                  
+                    <li class="active">
+                        <a href="/seekerView"><i class="fa fa-user"></i> <span class="nav-label">Sales Agent View</span></a>
+
+                    </li>
+                    <li class="active">
+                        <a href="#"><i class="fa fa-cog"></i> <span class="nav-labellabellabel">Settings </span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="/changePassword"> Change Password</a></li>
+                            <li><a href="/Faq">Faq Detail</a></li>
+                            <li><a href="/termAndCondition">About us Detail</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <form role="search" class="navbar-form-custom" action="search_results.html">
+                        </form>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <span class="m-r-sm text-muted welcome-message">Welcome to sales-Succeed App Admin </span>
+                        </li>
+
+                        <li><a class="dropdown-item" onclick="logout()">Logout</a></li>
+                    </ul>
+
+                </nav>
+            </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>Business Detail</h2>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/dashboard">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="/salesAgents">salesAgents</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            <strong>Detail</strong>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="ibox ">
+                            <div class="img-box">
+                                <img id="blah" src="../img/previewImage.png" alt="" style="width:400px; height:400px; ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="ibox " id="ibox1">
+                            <div class="ibox-content">
+                                <div class="sk-spinner sk-spinner-double-bounce">
+                                    <div class="sk-double-bounce1"></div>
+                                    <div class="sk-double-bounce2"></div>
+                                </div>
+                                <form id="form1" method="post" enctype="multipart/form-data">
+                                    <div class="row">
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4>First Name</h4>
+                                            <input type="text" name="firstName" id="firstName" class="form-control"
+                                                autocomplete="off" readonly>
+                                        </div>  
+                                            <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4>Last Name</h4>
+                                            <input type="text" name="lastName" id="lastName" class="form-control"
+                                                autocomplete="off" readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4>Company Name</h4>
+                                            <input type="text" name="companyName" id="companyName" class="form-control"
+                                                autocomplete="off" readonly>
+                                        </div>
+                                
+                                        <!-- <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4>Account Holder Name</h4>
+                                            <input type="text" name="name" id="name" class="form-control"
+                                                autocomplete="off" readonly>
+                                        </div> -->
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4>Email</h4>
+                                            <input type="email" id="email" name="email" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4>Sector Name</h4>
+                                            <input type="sector" id="sector" name="sector" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4>Business Number</h4>
+                                            <input type="phn" id="phn" name="phn" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4>Number Of Jobs</h4>
+                                            <input type="text" id="job" name="job" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4>Ongoing Jobs</h4>
+                                            <input type="text" id="ongoingjob" name="ongoingjob" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4>Completed Jobs</h4>
+                                            <input type="text" id="completedjob" name="completedjob" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4>Drafts Jobs</h4>
+                                            <input type="text" id="draftjob" name="draftjob" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4> Web Url</h4>
+                                            <input type="url" id="url" name="url" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4>Status</h4>
+                                            <input type="status" id="status" name="status" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4> Member since</h4>
+                                            <input type="Member" id="member" name="member" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4> Industry Name</h4>
+                                            <input type="industry" id="industry" name="industry" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4> No.Of Customer</h4>
+                                            <input type="customer" id="customer" name="customer" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4> Company Size</h4>
+                                            <input type="size" id="size" name="size" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4> Range</h4>
+                                            <input type="text" id="range" name="range" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4> Subscription Type</h4>
+                                            <input type="text" id="subscriptionType" name="subscriptionType" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4> Subscription Amount</h4>
+                                            <input type="text" id="subAmount" name="subAmount" class="form-control"
+                                                readonly>
+                                        </div>
+                                
+                                
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4> Subscription Renewal Date</h4>
+                                            <input type="text" id="renewal" name="renewal" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <!-- <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4> Region</h4>
+                                            <input type="text" id="region" name="region" class="form-control"
+                                                readonly>
+                                        </div> -->
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4> Country</h4>
+                                            <input type="text" id="country" name="country" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div style="margin-bottom: 15px" class="col-sm-6">
+                                            <h4> Agents hired</h4>
+                                            <input type="text" id="agentHired" name="agentHired" class="form-control"
+                                                readonly>
+                                        </div>
+                                        <div>
+                                         <a href = "/business"  class="btn btn-primary block half-width m-b" 
+                                                 style="margin-left: 650px; ">Okay</button></a>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="../js/script.js"></script>
+    <!-- Mainly scripts -->
+    <script src="./js/jquery-3.1.1.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.js"></script>
+    <script src="./js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="./js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Peity -->
+    <script src="./js/plugins/peity/jquery.peity.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="./js/inspinia.js"></script>
+    <script src="./js/plugins/pace/pace.min.js"></script>
+
+    <!-- iCheck -->
+    <script src="./js/plugins/iCheck/icheck.min.js"></script>
+
+    <!-- Peity -->
+    <script src="./js/demo/peity-demo.js"></script>
+    <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+    <script>
+
+        var host = window.location.protocol + "//" + window.location.host;
+        var token = localStorage.getItem("token")
+        if (!token) {
+            localStorage.removeItem("name");
+            localStorage.removeItem("token");
+            window.location.replace('/');
+        }
+        function auth(code) {
+            if (code == 403) {
+                localStorage.removeItem("name");
+                localStorage.removeItem("token");
+                window.location.replace('/');
+            }
+        }
+        function logout() {
+            console.log('logout')
+            $.ajax({
+                url: host + '/api/v1/admin/logout',
+                type: 'Get',
+                // data: formData,
+                beforeSend: function (xhr) { xhr.setRequestHeader('x-auth', token); },
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    auth(data.code)
+                    localStorage.removeItem("name");
+                    localStorage.removeItem("token");
+                    window.location.replace('/');
+                }
+            })
+        }
+
+        var currentLocation = window.location.href;
+        var url = new URL(currentLocation);
+        var c = url.searchParams.get("id");
+        var obj = {
+            'businessId': c
+        }
+        function detail() {
+
+            $.ajax({
+                url: host + '/api/v1/business/businessDetailForAdmin',
+                type: 'Post',
+                data: JSON.stringify(obj),
+                contentType: 'application/json',
+                beforeSend: function (xhr) { xhr.setRequestHeader('x-auth', token); },
+                dataType: 'json',
+                success: function (data) {
+                    auth(data.code)
+                    if (data.code == 200) {
+                        document.getElementById('firstName').value = data.result.firstName;
+                        document.getElementById('lastName').value = data.result.lastName;
+
+                        document.getElementById('companyName').value = data.result.companyName;
+                       // document.getElementById('name').value = data.result.accountHolder;
+                        document.getElementById('email').value = data.result.email
+                        document.getElementById('sector').value = data.result.sector;
+                        document.getElementById('phn').value = data.result.businessNumber;
+                        document.getElementById('job').value = data.result.job;
+                        document.getElementById('ongoingjob').value = data.result.ongoing;
+                        document.getElementById('completedjob').value = data.result.complete;
+                        document.getElementById('draftjob').value = data.result.draft;
+
+                        document.getElementById('url').value = data.result.webUrl;
+                        document.getElementById('status').value = data.result.status;
+                        document.getElementById('member').value = data.result.createdAt;
+                        document.getElementById('industry').value = data.result.industry;
+                        document.getElementById('customer').value = data.result.numOfCustomer   ;
+                        document.getElementById('size').value = data.result.companySize;
+                        document.getElementById('range').value = data.result.range.range;
+                        document.getElementById('subscriptionType').value = data.result.range.subType;
+                        document.getElementById('subAmount').value = data.result.range.subscription;
+                        document.getElementById('renewal').value = data.result.range.subRenewal;
+                       // document.getElementById('region').value = data.result.range.range;
+                        document.getElementById('country').value = data.result.country;
+                        document.getElementById('agentHired').value = data.result.seeker;
+                        document.getElementById('blah').src = data.result.image
+
+                    } else {
+                        swal({
+                            title: "Error",
+                            text: data.message
+                        });
+                    }
+                }
+            })
+        }
+
+    </script>
+</body>
+
+</html>
